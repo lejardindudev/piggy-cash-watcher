@@ -1,0 +1,28 @@
+@use "../../index.scss" as *;
+/*
+  Styles for InputBox component
+*/
+.InputBox{
+   display:flex;
+    flex-direction:column;
+    margin-bottom:$xxSmallSpace;
+    &-label{
+        font-weight: bold;
+        font-size:$smallSpace;
+        padding-left:$space;
+        margin-bottom:-$xxSmallSpace;
+    }
+    &-input{
+        border-radius: $xxBigSpace;
+        padding:$xSmallSpace;
+        &[type="submit"]{
+            background-color: $altColor;
+            color:$white;
+            border:none;
+            color:$white;
+            padding:$smallSpace $mediumSpace;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}

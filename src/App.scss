@@ -1,0 +1,34 @@
+@use "./index.scss" as *;
+.Header{
+    
+    padding: 1em;
+    background-color: $bgColor;
+    color: $white;
+    @media screen AND (min-width:$tablet){
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+
+// Main content
+.Content{
+    
+    margin-top : $xxBigSpace;
+    
+}
+
+.InputBox{
+   
+}
+// Items de dépenses dynamiques
+.ExpenseListItem{
+   
+}
+
+
+// Aside
+.ExpenseAmount{
+   
+}

@@ -1,0 +1,11 @@
+@use "../../index.scss" as *;
+/*
+  Styles for ExpenseForm component
+*/
+.ExpenseForm{
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    margin-bottom:$xBigSpace;
+    flex-wrap: wrap;
+}

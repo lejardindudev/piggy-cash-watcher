@@ -1,0 +1,10 @@
+@use "../../index.scss" as *;
+/*
+  Styles for ExpenseListItem component
+*/
+.ExpenseListItem{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:$space;
+    border-bottom:1px dotted $bgLightColor;
+}

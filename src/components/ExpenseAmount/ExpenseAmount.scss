@@ -1,0 +1,32 @@
+@use "../../index.scss" as *;
+/*
+  Styles for ExpenseAmount component
+*/
+.ExpenseAmount{
+    margin-top:auto;
+    // background-color: $firstColor;
+    padding:$xxBigSpace;
+    padding-bottom:150px;
+    color:$white;
+    &-layout{
+        box-sizing:border-box;
+        position:fixed;
+        bottom:$xxBigSpace;
+        left:50%;
+        transform:translateX(-50%);
+        background-color: $bgAlphaColor;
+        border-radius:$xxBigSpace;
+        padding:$mediumSpace $xBigSpace;
+        backdrop-filter:blur(10px);
+    }
+    &-amount{
+        display:flex;
+        justify-content: space-between;
+        margin-bottom:$space;
+        &-price{
+            color:$textColor;
+            font-weight: bold;
+            font-size:$bigSpace;
+        }
+    }
+}

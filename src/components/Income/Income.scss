@@ -1,0 +1,43 @@
+@use "../../index.scss" as *;
+
+.Income{
+    &-form{
+        display:flex;
+        align-items:center;
+        gap: 1em;
+        position:relative;
+        &::after{
+            content: "€";
+            position:absolute;
+            color:$bgLightColor;
+            font-size:$bigSpace;
+            font-weight:bold;
+            right: 15px;
+            margin-left: 0.25em;
+        }
+    }
+    &-label{
+        text-align: right;
+        font-weight: bold;
+        
+        
+    }
+    &-input{
+        position:absolute;
+        bottom:-10px;
+        right:0;
+        width:100px;
+        padding: $xSmallSpace $xBigSpace;
+        border-radius: 50px;
+        border: none;
+        color: $altColor;
+        text-align:right;
+        font-weight:bold;
+        font-size: $mediumSpace;
+        @media screen AND (min-width:$tablet){
+            position:static;
+        }
+        
+        
+    }
+}
