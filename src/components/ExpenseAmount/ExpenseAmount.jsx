@@ -1,4 +1,5 @@
 // Hooks
+import {useSelector } from 'react-redux';
 
 
 // import { useState } from 'react';
@@ -7,15 +8,18 @@
 // Ressources
 import './ExpenseAmount.css';
 
-export default function ExpenseAmount({totalAmount}) {
+export default function ExpenseAmount() {
+  const currentCash = useSelector((store)=>store.EXPENSE.currentCash)
+  const totalExpense = useSelector((store)=>store.EXPENSE.totalExpense)
 
+  const layoutClass = currentCash <= 0 ? "layout ExpenseAmount-layout noMoreCash" : "layout ExpenseAmount-layout";
 
   return (
    <aside className="ExpenseAmount">
-        <div className="layout ExpenseAmount-layout">
+        <div className={layoutClass}>
         <h2 className="ExpenseAmount-title">Expense Total</h2>
-        <p className="ExpenseAmount-amount"><strong className="ExpenseAmount-amount-label">Total dépenses</strong><span className="ExpenseAmount-amount-price">{totalAmount}€</span></p>
-        <p className="ExpenseAmount-amount"><strong className="ExpenseAmount-amount-label">Argent restant</strong><span className="ExpenseAmount-amount-price">1000 €</span></p>
+        <p className="ExpenseAmount-amount"><strong className="ExpenseAmount-amount-label">Total dépenses</strong><span className="ExpenseAmount-amount-price">{totalExpense} €</span></p>
+        <p className="ExpenseAmount-amount"><strong className="ExpenseAmount-amount-label">Argent restant</strong><span className="ExpenseAmount-amount-price">{currentCash} €</span></p>
         </div>
       </aside>
   );

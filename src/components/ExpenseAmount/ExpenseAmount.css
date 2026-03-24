@@ -121,6 +121,9 @@ p {
   padding: 1.3em 2em;
   backdrop-filter: blur(10px);
 }
+.ExpenseAmount-layout.noMoreCash {
+  background-color: red;
+}
 .ExpenseAmount-amount {
   display: flex;
   justify-content: space-between;

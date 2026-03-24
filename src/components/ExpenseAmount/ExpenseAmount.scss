@@ -18,6 +18,9 @@
         border-radius:$xxBigSpace;
         padding:$mediumSpace $xBigSpace;
         backdrop-filter:blur(10px);
+        &.noMoreCash{
+            background-color: red;
+        }
     }
     &-amount{
         display:flex;

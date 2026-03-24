@@ -6,22 +6,24 @@ export const expenseSlice = createSlice({
         totalExpense: 800,
         countExpense:3,
         expenses: [
-      {
-        title: 'Ordinateur',
-        amount: 500,
-        id: 0
-      },
-      {
-        title: 'Chair',
-        amount: 200,
-        id: 1
-      },
-      {
-        title: 'Desk',
-        amount: 100,
-        id: 2
-      }
-    ]
+            {
+                title: 'Ordinateur',
+                amount: 500,
+                id: 0
+            },
+            {
+                title: 'Chair',
+                amount: 200,
+                id: 1
+            },
+            {
+                title: 'Desk',
+                amount: 100,
+                id: 2
+            }
+        ],
+        totalIncome:1000,
+        currentCash:200
     },
     reducers: {
         addExpense: (currentSlice,action) => { 
@@ -52,17 +54,31 @@ export const expenseSlice = createSlice({
         
         
         modifyExpense : (currentSlice,action) => {
-
+            console.log("Payload : ",action.payload)
+            const currentExpense = currentSlice.expenses.find((expense) => expense.id === action.payload.id);
+            currentExpense.amount=action.payload.amount;
+            currentExpense.title=action.payload.title;
+            console.log("From Slice : ",currentExpense.id,currentExpense.title);
+            updateTotalExpense();
         },
         updateTotalExpense : (currentSlice,action) => {            
-             
+             console.log("amount changed");
+             currentSlice.totalExpense = currentSlice.expenses.reduce((acc,expense) => {
+                return acc + Number(expense.amount);
+             },0)
         },
+        updateCurrentCash : (currentSlice,action) => {
+            currentSlice.currentCash = currentSlice.totalIncome - currentSlice.totalExpense
+        },
+        updateTotalIncome : (currentSlice,action) => {
+            currentSlice.totalIncome = action.payload.income;
+        }
         /* autres fonctions*/ 
     }
 
 });
 //destructuration => toutes les fonctions créées passent dans les accolades du const
-const {addExpense,updateTotalExpense,deleteExpense, addExpenseAmountToTotal,modifyExpense,substractExpenseAmountToTotal} = expenseSlice.actions;
+const {addExpense,updateTotalExpense,deleteExpense, addExpenseAmountToTotal,modifyExpense,substractExpenseAmountToTotal,updateCurrentCash,updateTotalIncome} = expenseSlice.actions;
 
 export {
     addExpense,
@@ -71,4 +87,6 @@ export {
     addExpenseAmountToTotal,
     modifyExpense,
     substractExpenseAmountToTotal,
+    updateCurrentCash,
+    updateTotalIncome
 }

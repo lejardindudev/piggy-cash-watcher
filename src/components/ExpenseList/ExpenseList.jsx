@@ -2,7 +2,6 @@
 // import { useEffect } from 'react';
 
 import './ExpenseList.css';
-import EditItemForm from "../../containers/EditItemForm"
 import ExpenseListItem from "../../containers/ExpenseListItem"
 
 export default function ExpenseList({showHideForm,items,restoreFocus,updaterVisibility}) {
@@ -21,7 +20,6 @@ export default function ExpenseList({showHideForm,items,restoreFocus,updaterVisi
                 showHideForm={showHideForm}
               />)
             })}
-            <EditItemForm restoreFocus={restoreFocus} />
             
           </div>
   );

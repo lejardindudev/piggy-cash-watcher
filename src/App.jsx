@@ -1,10 +1,10 @@
 // Hooks
 import {useSelector,useDispatch} from 'react-redux';
-import {useRef,useState} from "react";
+import {useRef,useState,useLayoutEffect} from "react";
 
 
 //#### UTILS ###########
-import {addExpense,updateTotalExpense,modifyExpense,addExpenseAmountToTotal} from "./store/expense-slice/expenseSlice"
+import {addExpense,updateTotalExpense,modifyExpense,addExpenseAmountToTotal,updateCurrentCash} from "./store/expense-slice/expenseSlice"
 
 // Ressources
 import './App.css';
@@ -25,34 +25,32 @@ function App() {
   // Référence pour interagir avec le input des forms
   const inputUpdateRef = useRef(null);
   const amountUpdateRef = useRef(null);
+  const idUpdateRef = useRef(null);
   const inputAddRef = useRef(null);
-  // Vérif
-    console.log( "original ref",inputAddRef);
   
-    // State pour popin updater
-    const [openForm,setOpenForm] = useState(false);
+  // State pour popin updater
+  const [openForm,setOpenForm] = useState(false);
+  
+  const showHideForm = (booleen,title,amount,id) =>{
+    setOpenForm(booleen);
+    inputUpdateRef.current.value=title;
+    amountUpdateRef.current.value=amount;
+    idUpdateRef.current.value=id;
+    setFocus();
     
-    const showHideForm = (booleen,title,amount,id) =>{
-      setOpenForm(booleen);
-      inputUpdateRef.current.value=title;
-      amountUpdateRef.current.value=amount;
-      setFocus();
-      
-    }
-   
-
+  }
 
   // Fonctions a propager aux composants enfants
   const setFocus = (inputRef=inputAddRef) => {
-    console.log("ref",inputRef)
+    // console.log("ref",inputRef)
     inputRef.current.focus();
   }
-//TODO:Virer ce truc
-  const updaterFormHandler = () => {
-    setUpdater(!updater);
-  }
+  useLayoutEffect (()=> {
+    setFocus(inputAddRef)
 
-  // Comportement du composant ExpenseForm a propager
+  },[]);
+
+  // Comportement des variantes du composant ExpenseForm a propager
   function addItem (e) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -60,37 +58,68 @@ function App() {
     const amount=Number(formData.get("amount-add"));
     if(title.trim() === "" || amount === 0){
                 alert( "Sorry, some of your entries are empty");
-                // restoreFocus();
+                setFocus()
                 return;
             }
     if (Number.isNaN(amount)){
       alert("Bad format for amount field ");
-      // restoreFocus();
       return;
     }
     if (amount <= 0) {
       alert("Amount should be higher than 0");
-      // setFocus(inputAddRef);
       return ;
     }
     dispatch(addExpense({title,amount}));
     dispatch(addExpenseAmountToTotal({amount}))
+    dispatch(updateCurrentCash())
     e.currentTarget.reset();
     setFocus(inputAddRef);
   }
 
   function updateItem (e) {
     e.preventDefault();
-    
-    resetForm(e);
+    // Tests de validité
+    /**
+     * inputUpdateRef.current.value=title;
+    amountUpdateRef.current.value=amount;
+    idUpdateRef.current.value=id;
+     * 
+     */
+    const titleUpdate = inputUpdateRef.current.value;
+    const amountUpdate = Number(amountUpdateRef.current.value);
+    if(titleUpdate.trim() === "" || amountUpdate === 0){
+      alert( "Sorry, some of your entries are empty");
+      // restoreFocus();
+      return;
+    }
+    console.log("from form",amountUpdate);
+    if (Number.isNaN(amountUpdate)){
+      alert("Bad format for amount field ");
+      // restoreFocus();
+      return;
+    }
+    if (amountUpdate <= 0) {
+      alert("Amount should be higher than 0");
+      // setFocus(inputAddRef);
+      return ;
+    }
+
+    const id= Number(idUpdateRef.current.value);
+    const title= inputUpdateRef.current.value;
+    const amount= amountUpdateRef.current.value;
+    dispatch(modifyExpense({id,title,amount}));
+    dispatch(updateTotalExpense());
+    dispatch(updateCurrentCash());
+
+    showHideForm(false)
     
   }
-  // console.log("Updater : ",updater)
+//  RENDER -->
   return (
     <>
       <header className="Header">
         <Logo />
-        <Income />
+        <Income restoreFocus={setFocus}/>
         
 
       </header>
@@ -108,6 +137,7 @@ function App() {
           <ExpenseForm  
             inputUpdateRef={inputUpdateRef} 
             amountUpdateRef={amountUpdateRef}
+            idUpdateRef={idUpdateRef}
             formType="update" 
             restoreFocus={setFocus} 
             onSubmitHandler={updateItem} 

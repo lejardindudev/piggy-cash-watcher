@@ -14,15 +14,9 @@ import './ExpenseForm.css';
 //#### COMPONENTS ###########
 import InputBox from "../InputBox" ;
 
-const ExpenseForm = forwardRef(( {amountUpdateRef,inputUpdateRef,isVisible,formType,restoreFocus,onSubmitHandler,parentClass,updater,showHideForm} , ref) => {
+const ExpenseForm = forwardRef(( {idUpdateRef,amountUpdateRef,inputUpdateRef,isVisible,formType,restoreFocus,onSubmitHandler,parentClass,updater,showHideForm} , ref) => {
 // export default function ExpenseForm() {
 
-  
-  // function resetForm (e) {
-  //   e.currentTarget.reset();
-  //   console.log("from ExpenseForm : ",ref)
-  //   restoreFocus(ref);
-  // }
   const updateClass = formType === "update" ? " updater" : "";
   const isOpen = isVisible ? " open" : "" ;
   const customClass = parentClass ? parentClass + " ExpenseForm"  + updateClass + isOpen: "ExpenseForm"+ updateClass + isOpen; 
@@ -33,7 +27,7 @@ const ExpenseForm = forwardRef(( {amountUpdateRef,inputUpdateRef,isVisible,formT
       <div className="popinWrapper">
         {/* Close button conditionnal for update form only */}
       {formType === "update" 
-        ? <span onClick = {()=> { showHideForm(false);}}className="ExpenseForm-closeUpdate"> <i className="fa-solid fa-xmark"></i></span>
+        ? <><span onClick = {()=> { showHideForm(false);}} className="ExpenseForm-closeUpdate"> <i className="fa-solid fa-xmark"></i></span> <input type="hidden" name="id" ref={idUpdateRef} /> </>
         : ""}
       
       {formType === "add" 

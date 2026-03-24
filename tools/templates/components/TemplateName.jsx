@@ -4,9 +4,11 @@
 
 //## UTILS  ###########
 
+//## ASSETS - RESSOURCES #############
+import './TemplateName.css';
+
 //## COMPONENTS  ###########
 
-import './TemplateName.css';
 
 export default function TemplateName() {
 

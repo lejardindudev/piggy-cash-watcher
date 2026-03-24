@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 // import { useEffect } from 'react';
 import {useDispatch} from "react-redux";
-import {deleteExpense,substractExpenseAmountToTotal} from "../../store/expense-slice/expenseSlice"
+import {deleteExpense,substractExpenseAmountToTotal, updateCurrentCash} from "../../store/expense-slice/expenseSlice"
 
 import './ExpenseListItem.css';
 
@@ -11,13 +11,16 @@ export default function ExpenseListItem({title,amount,id,restoreFocus,showHideFo
     const amountNumber=Number(amount);
     dispatch(deleteExpense({id}));
     dispatch(substractExpenseAmountToTotal({amount}));
+    dispatch(updateCurrentCash({amount}))
+
     restoreFocus();
     
     
   }
 const handleUpdateItem = (title,amount,id) => {
-  console.log(title,amount,id);
+  // console.log(title,amount,id);
   showHideForm(true,title,amount,id);
+
 }
 
   return (
