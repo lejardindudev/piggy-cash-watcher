@@ -6,6 +6,7 @@ export default function Logo() {
   return (
     <figure className="Header-logo Logo">
           <img className="Logo-img" src={logoImg} alt="Logo" />
+          <figcaption className="Logo-caption">Piggy <strong>Cash</strong> Watcher</figcaption>
     </figure>
   );
 }

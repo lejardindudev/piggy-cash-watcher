@@ -1,5 +1,16 @@
+@use "../../assets/variables" as *;
 .Logo{
+    text-align: center;
+    width:150px;
     &-img{
         max-width:120px;
+        margin-bottom:-20px;
+    }
+    &-caption{
+        font-size:$mediumSpace;
+         font-family: "Cherry Bomb One", system-ui;
+         strong{
+            color:$altColor;
+         }
     }
 }

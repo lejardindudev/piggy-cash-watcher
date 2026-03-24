@@ -19,7 +19,7 @@ export default function ExpenseAmount() {
         <div className={layoutClass}>
         <h2 className="ExpenseAmount-title">Expense Total</h2>
         <p className="ExpenseAmount-amount"><strong className="ExpenseAmount-amount-label">Total dépenses</strong><span className="ExpenseAmount-amount-price">{totalExpense} €</span></p>
-        <p className="ExpenseAmount-amount"><strong className="ExpenseAmount-amount-label">Argent restant</strong><span className="ExpenseAmount-amount-price">{currentCash} €</span></p>
+        <p className="ExpenseAmount-amount"><strong className="ExpenseAmount-amount-label">Argent restant</strong><span className="ExpenseAmount-amount-price cash">{currentCash} €</span></p>
         </div>
       </aside>
   );

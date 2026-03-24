@@ -1,4 +1,4 @@
-@use "../../index.scss" as *;
+@use "../../assets/variables" as *;
 /*
   Styles for ExpenseAmount component
 */
@@ -30,6 +30,11 @@
             color:$textColor;
             font-weight: bold;
             font-size:$bigSpace;
+            &.cash{
+                color:$white;
+                font-size:$xBigSpace;
+                text-shadow:5px 5px 5px  $lightAlphaGray;
+            }
         }
     }
 }

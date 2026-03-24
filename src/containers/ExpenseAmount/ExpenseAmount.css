@@ -1,0 +1,38 @@
+/*
+  Styles for ExpenseAmount component
+*/
+.ExpenseAmount {
+  margin-top: auto;
+  padding: 3em;
+  padding-bottom: 150px;
+  color: white;
+}
+.ExpenseAmount-layout {
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 3em;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(9, 30, 58, 0.195);
+  border-radius: 3em;
+  padding: 1.3em 2em;
+  backdrop-filter: blur(10px);
+}
+.ExpenseAmount-layout.noMoreCash {
+  background-color: red;
+}
+.ExpenseAmount-amount {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+.ExpenseAmount-amount-price {
+  color: rgb(16, 26, 38);
+  font-weight: bold;
+  font-size: 1.6em;
+}
+.ExpenseAmount-amount-price.cash {
+  color: white;
+  font-size: 2em;
+  text-shadow: 5px 5px 5px rgba(108, 108, 108, 0.727);
+}/*# sourceMappingURL=ExpenseAmount.css.map */

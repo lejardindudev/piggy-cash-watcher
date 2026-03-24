@@ -10,10 +10,10 @@ import {addExpense,updateTotalExpense,modifyExpense,addExpenseAmountToTotal,upda
 import './App.css';
 // Components
 import Logo from './components/Logo/Logo';
-import Income from './components/Income/Income';
+import Income from './containers/Income/Income';
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from './components/ExpenseList';
-import ExpenseAmount from "./components/ExpenseAmount"
+import ExpenseAmount from "./containers/ExpenseAmount"
 
 function App() {
   // Lecture écriture du store

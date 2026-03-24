@@ -6,7 +6,7 @@ import {forwardRef} from 'react';
 
 
 //#### UTILS ###########
-import {addExpense,updateTotalExpense,modifyExpense,addExpenseAmountToTotal} from "../../store/expense-slice/expenseSlice"
+// import {addExpense,updateTotalExpense,modifyExpense,addExpenseAmountToTotal} from "../../store/expense-slice/expenseSlice"
 
 // ## ASSETS - RESSOURCES #############
 import './ExpenseForm.css';

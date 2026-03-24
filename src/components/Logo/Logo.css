@@ -1,3 +1,15 @@
+.Logo {
+  text-align: center;
+  width: 150px;
+}
 .Logo-img {
   max-width: 120px;
+  margin-bottom: -20px;
+}
+.Logo-caption {
+  font-size: 1.3em;
+  font-family: "Cherry Bomb One", system-ui;
+}
+.Logo-caption strong {
+  color: rgb(154, 0, 116);
 }/*# sourceMappingURL=Logo.css.map */
