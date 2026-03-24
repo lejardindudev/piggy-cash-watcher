@@ -7,6 +7,11 @@
   padding-bottom: 150px;
   color: white;
 }
+@media screen and (max-height: 680px) {
+  .ExpenseAmount {
+    padding-bottom: 1.6em;
+  }
+}
 .ExpenseAmount-layout {
   box-sizing: border-box;
   position: fixed;
@@ -17,6 +22,12 @@
   border-radius: 3em;
   padding: 1.3em 2em;
   backdrop-filter: blur(10px);
+}
+@media screen and (max-height: 680px) {
+  .ExpenseAmount-layout {
+    position: static;
+    transform: initial;
+  }
 }
 .ExpenseAmount-layout.noMoreCash {
   background-color: red;

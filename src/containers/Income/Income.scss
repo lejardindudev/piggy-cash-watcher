@@ -1,21 +1,52 @@
 @use "../../assets/variables" as *;
 
 .Income{
+    position:fixed;
+    z-index:10;
+    top:0;
+    right:0;
+    left:0;
+    padding:$space;
+    background-color: $bgColor;
+    height:60px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow:0 4px 10px $shadow;
+    @media screen AND (min-width:$tablet){
+        position:static;
+        box-shadow: none;
+        margin-top:0;
+    }
     &-form{
         display:flex;
+        justify-content: space-between;
         align-items:center;
-        gap: 1em;
-        position:relative;
+        height:100%;
+        display:flex;
+        // align-items:center;
+        // gap: 1em;
+        // position:relative;
+        @media screen AND (min-width:$tablet){
+            gap:10px;
+        }
         &::after{
             content: "€";
             position:absolute;
             color:$bgLightColor;
             font-size:$bigSpace;
             font-weight:bold;
-            right: 15px;
+            right: 25px;
             margin-left: 0.25em;
+            @media screen AND (min-width:$tablet){
+                right:45px;
+            }
         }
+        
+
     }
+    
+   
     &-label{
         text-align: right;
         font-weight: bold;
@@ -23,9 +54,9 @@
         
     }
     &-input{
-        position:absolute;
-        bottom:-10px;
-        right:0;
+        // position:relative;
+        // bottom:10px;
+        // right:0;
         width:100px;
         padding: $xSmallSpace $xBigSpace;
         border-radius: 50px;

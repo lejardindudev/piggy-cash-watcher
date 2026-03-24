@@ -1,7 +1,6 @@
 //## HOOKS ###########
 // import { useEffect } from 'react';
-// import { useState } from 'react';
-import {forwardRef} from 'react';
+import {forwardRef,useState} from 'react';
 
 
 
@@ -15,11 +14,23 @@ import './ExpenseForm.css';
 import InputBox from "../InputBox" ;
 
 const ExpenseForm = forwardRef(( {idUpdateRef,amountUpdateRef,inputUpdateRef,isVisible,formType,restoreFocus,onSubmitHandler,parentClass,updater,showHideForm} , ref) => {
-// export default function ExpenseForm() {
 
+  // Refs
+  
+  // States
+  const [closed,setClosed] = useState(false);
+
+  // Classes personnalisées
+  const isClosed = closed ? " closed" : ""
   const updateClass = formType === "update" ? " updater" : "";
   const isOpen = isVisible ? " open" : "" ;
-  const customClass = parentClass ? parentClass + " ExpenseForm"  + updateClass + isOpen: "ExpenseForm"+ updateClass + isOpen; 
+  const hasParentClass = parentClass ? parentClass + " ExpenseForm" : " ExpenseForm"
+  const customClass = hasParentClass + updateClass + isOpen + isClosed; 
+
+  // Fonctions
+  const handleClose = () => {
+    setClosed(!closed);
+  }
 
   return (
 
@@ -42,6 +53,8 @@ const ExpenseForm = forwardRef(( {idUpdateRef,amountUpdateRef,inputUpdateRef,isV
       {/* <InputBox label="Amount" idName="amount"/> */}
       <InputBox type="submit" formType={formType}/>
       </div>
+      {formType === "add" && <div onClick={()=>{handleClose()}} className="ExpenseForm-showHide"><i className="fa-solid fa-angle-down ExpenseForm-showHide-icon"></i></div>
+        }
     </form>
   );
 

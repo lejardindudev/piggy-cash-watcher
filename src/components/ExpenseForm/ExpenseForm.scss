@@ -3,30 +3,112 @@
   Styles for ExpenseForm component
 */
 .ExpenseForm{
-  .popinWrapper{
-    display:flex;
-    justify-content: space-between;
-    align-items:flex-end;
-    margin-bottom:$xBigSpace;
-    flex-wrap: wrap;
+  position:fixed;
+  top:92px;
+  left:0;
+  right:0;
+  background-color: $bgAlphaColor;
+  backdrop-filter: blur(10px);
+  padding:$space;
+  border-radius:0 0 $xBigSpace $xBigSpace;
+  box-shadow:0 4px 10px $shadow;
+  transition: .3s;
+  @media screen AND (min-width:$tablet){
+    position:static;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  &.closed{
+    top: -65px;
     .ExpenseForm{
-      // Don't write here
-      &-closeUpdate{
-        display:none;
+      &-showHide{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        transform:translateY(120%);
+        box-shadow:5px 5px 10px $shadow;
+        @media screen AND (min-width:$tablet){
+          display:none;
+        }
+        &-icon{
+          transform:rotate(0);
+        }
       }
     }
   }
+  .popinWrapper{
+    display:grid;
+    grid-template-columns: 1fr 80px;
+    align-items:center;
+    gap:$xSmallSpace $bigSpace ;
+    @media screen AND (min-width:$tablet){
+      display:flex;
+      justify-content: space-between;
+      align-items:flex-end;
+      margin-bottom:$xBigSpace;
+      flex-wrap: wrap;
+    }
+    .ExpenseForm-inputBox{
+      color:white;
+       @media screen AND (min-width:$tablet){
+        color:$bgColor;
+       }
+      &:nth-child(3){
+        grid-row:1/3;
+        grid-column:2/3;
+        
+      }
+    }
+  }
+  &-showHide{
+    position:absolute;
+    bottom:0;
+    right:35px;
+    background-color: $bgLightColor;
+    backdrop-filter: blur(10px);
+    height:50px;
+    width:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform:translateY(50%);
+    border-radius:500px;
+    font-family:  "Cherry Bomb One", system-ui;
+    color:$white;
+    transition:.3s;
+    cursor:pointer;
+    @media screen AND (min-width:$tablet){
+      display:none;
+    }
+    &-icon{
+      transform:rotate(180deg);
+    }
+    &:hover{
+      text-shadow: $bgAlphaColor;
+      .ExpenseForm-showHide{
+        &-icon{
+          // display:block;
+          // transform:rotate(180deg);
+        }
+      }
+    }
+  }
+
+  
+
   &.updater{
     display:none;
     &.open{
       display:block;
-      position:absolute;
+      position:fixed;
       z-index:10;
       top:0;
       left:0;
       width:100%;
       min-height:100vh;
       background-color: rgba(0, 0, 0, 0.722);
+      padding:0;
+      border-radius: initial;
       .popinWrapper{
         position:absolute;
         background-color: $white;
@@ -34,19 +116,48 @@
         border-radius:$xxBigSpace;
         top:50%;
         left:50%;
+        width:80%;
+        max-width:550px;
+        box-sizing:border-box;
         transform:translate(-50%,-50%);
-        .ExpenseForm-closeUpdate{
-          display:block;
-          position:absolute;
-          cursor:pointer;
-          top:$bigSpace;
-          right:$bigSpace;
-          &:hover{
-            color:$altColor;
+        display:flex;
+        flex-direction: column;
+          @media screen AND (min-width:$tablet){
+            display:grid;
+            grid-template-columns: 1fr 80px;
+            grid-auto-flow: dense;
+              align-items:center;
+
+
+          }
+        // Enfants de ExpenseForm.updater.open
+        
+        .ExpenseForm{
+          &-inputBox{
+            &:nth-child(3){
+              grid-row: 1/2;
+              grid-column: 1/2;
+            }
+            &:nth-child(5){
+              color:red;
+              grid-row: 1/3;
+              grid-column: 2/3;
+            }
+          }
+          &-closeUpdate{
+            display:block;
+            position:absolute;
+            cursor:pointer;
+            top:$bigSpace;
+            right:$bigSpace;
+            &:hover{
+              color:$altColor;
+            }
           }
         }
       }
 
     }
   }
+  // Fin du updater
 }

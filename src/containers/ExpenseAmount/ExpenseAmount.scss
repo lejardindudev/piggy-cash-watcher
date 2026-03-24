@@ -8,6 +8,10 @@
     padding:$xxBigSpace;
     padding-bottom:150px;
     color:$white;
+     @media screen AND (max-height:$vhMin){
+        padding-bottom:$bigSpace;
+
+    }
     &-layout{
         box-sizing:border-box;
         position:fixed;
@@ -18,6 +22,11 @@
         border-radius:$xxBigSpace;
         padding:$mediumSpace $xBigSpace;
         backdrop-filter:blur(10px);
+        @media screen AND (max-height:$vhMin){
+            position:static;
+            transform:initial;
+
+        }
         &.noMoreCash{
             background-color: red;
         }

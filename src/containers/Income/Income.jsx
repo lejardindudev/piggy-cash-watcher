@@ -41,7 +41,7 @@ export default function Income({restoreFocus}) {
 
 
   return (
-    <div className="Income">
+    <div className="Income sticky">
           <form action=""  className="Income-form" onSubmit={(e)=>handleSubmission(e)}>
             <label htmlFor="incoming" className="Income-label">Revenu</label>
             <input ref={incomeRef} type="text" className="Income-input" id="incoming" onChange={(e)=>onChangeHandler(e)} defaultValue={totalIncome} />
