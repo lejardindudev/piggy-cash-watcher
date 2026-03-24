@@ -1,16 +1,73 @@
-# React + Vite
+# 🐷 Piggy Cash Watcher
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Piggy Cash Watcher est une application React simple permettant de suivre
+ses dépenses et ses revenus en temps réel.
 
-Currently, two official plugins are available:
+##  Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Gestion des revenus
 
-## React Compiler
+-   Saisie d'un revenu utilisateur
+-   Validation des entrées (uniquement des nombres)
+-   Mise à jour du total disponible
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Gestion des dépenses
 
-## Expanding the ESLint configuration
+-   Ajout d'une dépense (titre + montant)
+-   Modification d'une dépense existante
+-   Suppression d'une dépense
+-   Mise à jour dynamique du total des dépenses
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Calculs automatiques
+
+-   Total des dépenses
+-   Revenu total
+-   Solde restant (cash disponible)
+
+## Concepts techniques utilisés
+
+### React
+
+-   Hooks (`useState`, `useRef`, `useEffect`, `useLayoutEffect`)
+-   Gestion des formulaires
+-   Composants réutilisables
+-   Gestion du focus via `forwardRef`
+
+### Redux Toolkit
+
+-   Création de slice (`createSlice`)
+-   Store global
+-   Actions synchrones
+-   `useDispatch` / `useSelector`
+
+### Validation
+
+-   Nettoyage des inputs (regex)
+-   Conversion sécurisée (`Number`, `Number.isNaN`)
+
+## Architecture
+
+src/ components/ containers / store/ App.jsx main.jsx
+
+## Installation
+
+``` bash
+git clone <repo-url>
+cd piggy-cash-watcher
+npm install
+npm run dev
+```
+
+##  Améliorations possibles
+
+-   Persistance (localStorage / backend)
+-   Graphiques
+-   Catégorisation
+
+##  Objectif pédagogique
+
+-   Comprendre Redux
+-   Maîtriser les formulaires React
+-   Gérer les refs et le DOM
+
+
