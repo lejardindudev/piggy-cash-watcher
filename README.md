@@ -3,6 +3,8 @@
 Piggy Cash Watcher est une application React simple permettant de suivre
 ses dépenses et ses revenus en temps réel.
 
+voir sur Vercel : https://piggy-cash-watcher.vercel.app/
+
 ##  Fonctionnalités
 
 ### Gestion des revenus
