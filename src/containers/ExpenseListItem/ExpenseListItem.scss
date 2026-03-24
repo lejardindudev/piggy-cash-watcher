@@ -1,0 +1,31 @@
+@use "../../index.scss" as *;
+/*
+  Styles for ExpenseListItem component
+*/
+.ExpenseListItem{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:$space;
+    border-bottom:1px dotted $bgLightColor;
+    &>span{
+      &:first-child{
+        margin-left:0;
+      }
+      margin-left:$mediumSpace;
+
+    }
+    &-title{
+      margin-right:auto;
+    }
+    &-amount{
+      font-weight:bold;
+      font-size:$mediumSpace;
+    }
+    &-delete,&-edit{
+      color:$bgColor;
+      cursor:pointer;
+      &:hover{
+        color:$altColor;
+      }
+    }
+}

@@ -2,17 +2,26 @@
 // import { useEffect } from 'react';
 
 import './ExpenseList.css';
-import ExpenseListItem from "../ExpenseListItem"
+import EditItemForm from "../../containers/EditItemForm"
+import ExpenseListItem from "../../containers/ExpenseListItem"
 
-export default function ExpenseList({items}) {
+export default function ExpenseList({showHideForm,items,restoreFocus,updaterVisibility}) {
 
   return (
      <div className="Content-expense-list ExpenseList">
             <h2 className="ExpenseList-title">Expense List</h2>
-            {items.map((item,i) => {
-              return <ExpenseListItem key={item.name+"-"+i} title={item.title} amount ={item.amount} />
+            {items.map((item) => {
+              return (
+              <ExpenseListItem 
+                key={item.id} 
+                id={item.id} 
+                title={item.title} 
+                amount ={item.amount} 
+                restoreFocus={restoreFocus} 
+                showHideForm={showHideForm}
+              />)
             })}
-            {/* <ExpenseListItem title="Title" amount ="Amount" /> */}
+            <EditItemForm restoreFocus={restoreFocus} />
             
           </div>
   );

@@ -104,10 +104,45 @@ p {
 /*
   Styles for ExpenseForm component
 */
-.ExpenseForm {
+.ExpenseForm .popinWrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 2em;
   flex-wrap: wrap;
+}
+.ExpenseForm .popinWrapper .ExpenseForm-closeUpdate {
+  display: none;
+}
+.ExpenseForm.updater {
+  display: none;
+}
+.ExpenseForm.updater.open {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.722);
+}
+.ExpenseForm.updater.open .popinWrapper {
+  position: absolute;
+  background-color: white;
+  padding: 3em;
+  border-radius: 3em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ExpenseForm.updater.open .popinWrapper .ExpenseForm-closeUpdate {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  top: 1.6em;
+  right: 1.6em;
+}
+.ExpenseForm.updater.open .popinWrapper .ExpenseForm-closeUpdate:hover {
+  color: rgb(154, 0, 116);
 }/*# sourceMappingURL=ExpenseForm.css.map */

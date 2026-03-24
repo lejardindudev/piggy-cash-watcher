@@ -1,0 +1,52 @@
+@use "../../index.scss" as *;
+/*
+  Styles for ExpenseForm component
+*/
+.ExpenseForm{
+  .popinWrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    margin-bottom:$xBigSpace;
+    flex-wrap: wrap;
+    .ExpenseForm{
+      // Don't write here
+      &-closeUpdate{
+        display:none;
+      }
+    }
+  }
+  &.updater{
+    display:none;
+    &.open{
+      display:block;
+      position:absolute;
+      z-index:10;
+      top:0;
+      left:0;
+      width:100%;
+      min-height:100vh;
+      background-color: rgba(0, 0, 0, 0.722);
+      .popinWrapper{
+        position:absolute;
+        background-color: $white;
+        padding:$xxBigSpace;
+        border-radius:$xxBigSpace;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        .ExpenseForm-closeUpdate{
+          display:block;
+          position:absolute;
+          cursor:pointer;
+          top:$bigSpace;
+          right:$bigSpace;
+          &:hover{
+            color:$altColor;
+          }
+        }
+      }
+
+    }
+  }
+}

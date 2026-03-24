@@ -15,7 +15,10 @@
     &-input{
         border-radius: $xxBigSpace;
         padding:$xSmallSpace;
+        color:$firstDarkColor;
+        background-color: $white;
         &[type="submit"]{
+            text-transform: capitalize;
             background-color: $altColor;
             color:$white;
             border:none;

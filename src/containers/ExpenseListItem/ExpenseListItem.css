@@ -101,19 +101,32 @@ p {
   margin: 0;
 }
 
-.Header {
-  padding: 1em;
-  background-color: rgb(9, 30, 58);
-  color: white;
+/*
+  Styles for ExpenseListItem component
+*/
+.ExpenseListItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  border-bottom: 1px dotted rgb(70, 81, 95);
 }
-@media screen and (min-width: 480px) {
-  .Header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.ExpenseListItem > span:first-child {
+  margin-left: 0;
 }
-
-.Content {
-  margin-top: 3em;
-}/*# sourceMappingURL=App.css.map */
+.ExpenseListItem > span {
+  margin-left: 1.3em;
+}
+.ExpenseListItem-title {
+  margin-right: auto;
+}
+.ExpenseListItem-amount {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.ExpenseListItem-delete, .ExpenseListItem-edit {
+  color: rgb(9, 30, 58);
+  cursor: pointer;
+}
+.ExpenseListItem-delete:hover, .ExpenseListItem-edit:hover {
+  color: rgb(154, 0, 116);
+}/*# sourceMappingURL=ExpenseListItem.css.map */
