@@ -29,7 +29,7 @@
   .ExpenseAmount-layout {
     position: static;
     transform: initial;
-    width: 90%;
+    width: 95%;
   }
 }
 .ExpenseAmount-layout.noMoreCash {
