@@ -10,6 +10,8 @@
 @media screen and (max-height: 680px) {
   .ExpenseAmount {
     padding-bottom: 1.6em;
+    padding-inline: 0;
+    padding-top: 1.6em;
   }
 }
 .ExpenseAmount-layout {
@@ -27,6 +29,7 @@
   .ExpenseAmount-layout {
     position: static;
     transform: initial;
+    width: 90%;
   }
 }
 .ExpenseAmount-layout.noMoreCash {

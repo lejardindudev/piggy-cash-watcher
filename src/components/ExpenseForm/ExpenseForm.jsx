@@ -18,7 +18,7 @@ const ExpenseForm = forwardRef(( {idUpdateRef,amountUpdateRef,inputUpdateRef,isV
   // Refs
   
   // States
-  const [closed,setClosed] = useState(false);
+  const [closed,setClosed] = useState(true);
 
   // Classes personnalisées
   const isClosed = closed ? " closed" : ""

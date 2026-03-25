@@ -25,7 +25,7 @@
         display:flex;
         justify-content: center;
         align-items: center;
-        transform:translateY(120%);
+        transform:translateY(140%);
         box-shadow:5px 5px 10px $shadow;
         @media screen AND (min-width:$tablet){
           display:none;

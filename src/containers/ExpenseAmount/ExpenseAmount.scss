@@ -10,6 +10,8 @@
     color:$white;
      @media screen AND (max-height:$vhMin){
         padding-bottom:$bigSpace;
+        padding-inline: 0;
+        padding-top:$bigSpace;
 
     }
     &-layout{
@@ -25,6 +27,7 @@
         @media screen AND (max-height:$vhMin){
             position:static;
             transform:initial;
+            width:90%;
 
         }
         &.noMoreCash{
