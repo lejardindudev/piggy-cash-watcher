@@ -15,8 +15,11 @@
   background-color: rgb(9, 30, 58);
   color: white;
 }
+.Header .layout {
+  max-width: 750px;
+}
 @media screen and (min-width: 480px) {
-  .Header {
+  .Header .layout {
     display: flex;
     align-items: center;
     justify-content: space-between;

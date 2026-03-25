@@ -80,12 +80,6 @@ function App() {
   function updateItem (e) {
     e.preventDefault();
     // Tests de validité
-    /**
-     * inputUpdateRef.current.value=title;
-    amountUpdateRef.current.value=amount;
-    idUpdateRef.current.value=id;
-     * 
-     */
     const titleUpdate = inputUpdateRef.current.value;
     const amountUpdate = Number(amountUpdateRef.current.value);
     if(titleUpdate.trim() === "" || amountUpdate === 0){
@@ -119,8 +113,11 @@ function App() {
   return (
     <>
       <header className="Header">
-        <Logo />
-        <Income restoreFocus={setFocus}/>
+        <div className="layout">
+          <Logo />
+          <Income restoreFocus={setFocus}/>
+
+        </div>
         
 
       </header>

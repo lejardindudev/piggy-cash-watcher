@@ -14,10 +14,13 @@
     padding: 1em;
     background-color: $bgColor;
     color: $white;
-    @media screen AND (min-width:$tablet){
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    .layout{
+        max-width:750px;
+        @media screen AND (min-width:$tablet){
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 }
 

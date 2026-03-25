@@ -24,6 +24,7 @@
         align-items:center;
         height:100%;
         display:flex;
+        position:relative;
         // align-items:center;
         // gap: 1em;
         // position:relative;
@@ -36,10 +37,10 @@
             color:$bgLightColor;
             font-size:$bigSpace;
             font-weight:bold;
-            right: 25px;
+            right: 15px;
             margin-left: 0.25em;
             @media screen AND (min-width:$tablet){
-                right:45px;
+                right:15px;
             }
         }
         

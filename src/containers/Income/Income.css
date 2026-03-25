@@ -26,6 +26,7 @@
   align-items: center;
   height: 100%;
   display: flex;
+  position: relative;
 }
 @media screen and (min-width: 480px) {
   .Income-form {
@@ -38,12 +39,12 @@
   color: rgb(70, 81, 95);
   font-size: 1.6em;
   font-weight: bold;
-  right: 25px;
+  right: 15px;
   margin-left: 0.25em;
 }
 @media screen and (min-width: 480px) {
   .Income-form::after {
-    right: 45px;
+    right: 15px;
   }
 }
 .Income-label {
