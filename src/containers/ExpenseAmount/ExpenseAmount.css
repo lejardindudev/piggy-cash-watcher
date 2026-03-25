@@ -9,7 +9,7 @@
 }
 @media screen and (max-height: 680px) {
   .ExpenseAmount {
-    padding-bottom: 1.6em;
+    padding-bottom: 90px;
     padding-inline: 0;
     padding-top: 1.6em;
   }
@@ -17,7 +17,7 @@
 .ExpenseAmount-layout {
   box-sizing: border-box;
   position: fixed;
-  bottom: 3em;
+  bottom: 90px;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(9, 30, 58, 0.195);

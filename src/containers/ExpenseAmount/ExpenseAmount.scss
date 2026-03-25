@@ -8,16 +8,15 @@
     padding:$xxBigSpace;
     padding-bottom:150px;
     color:$white;
-     @media screen AND (max-height:$vhMin){
-        padding-bottom:$bigSpace;
+    @media screen AND (max-height:$vhMin){
+        padding-bottom:90px;
         padding-inline: 0;
         padding-top:$bigSpace;
-
     }
     &-layout{
         box-sizing:border-box;
         position:fixed;
-        bottom:$xxBigSpace;
+        bottom:90px;//$xxBigSpace;
         left:50%;
         transform:translateX(-50%);
         background-color: $bgAlphaColor;
@@ -28,7 +27,6 @@
             position:static;
             transform:initial;
             width:95%;
-
         }
         &.noMoreCash{
             background-color: red;
