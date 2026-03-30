@@ -4,7 +4,7 @@
 .ExpenseAmount {
   margin-top: auto;
   padding: 3em;
-  padding-bottom: 150px;
+  padding-bottom: 250px;
   color: white;
 }
 @media screen and (max-height: 680px) {

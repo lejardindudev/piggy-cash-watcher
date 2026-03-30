@@ -27,7 +27,6 @@ export default function Income({restoreFocus}) {
     }
     incomeRef.current.value = incomeRef.current.value.replace(/[^0-9]/g, "");
     const income = incomeRef.current.value;
-    console.log("Before update : ",income);
     dispatch(updateTotalIncome({income}));
     dispatch(updateCurrentCash());
 
