@@ -7,7 +7,7 @@ export const expenseSlice = createSlice({
         countExpense:3,
         expenses: [
             {
-                title: 'Ordinateur',
+                title: 'Computer',
                 amount: 500,
                 id: 0
             },
@@ -23,7 +23,8 @@ export const expenseSlice = createSlice({
             }
         ],
         totalIncome:1000,
-        currentCash:200
+        currentCash:200,
+        actionCounter:0,
     },
     reducers: {
         addExpense: (currentSlice,action) => { 
@@ -40,7 +41,7 @@ export const expenseSlice = createSlice({
             currentSlice.totalExpense += action.payload.amount;
         },
         deleteExpense:(currentSlice,action) => {
-            console.log("Expense "+ action.payload.id +" trying to delete");
+            // console.log("Expense "+ action.payload.id +" trying to delete");
             // console.log(currentSlice.expenses)
             const expenseIndex = currentSlice.expenses.findIndex( (expense) => {
                 return expense.id === action.payload.id;
@@ -48,21 +49,21 @@ export const expenseSlice = createSlice({
             currentSlice.expenses.splice(expenseIndex,1);
         },
          substractExpenseAmountToTotal : (currentSlice,action) => {
-            console.log("From slice",action.payload.amount)
+            // console.log("From slice",action.payload.amount)
             currentSlice.totalExpense -= action.payload.amount;
         },
         
         
         modifyExpense : (currentSlice,action) => {
-            console.log("Payload : ",action.payload)
+            // console.log("Payload : ",action.payload)
             const currentExpense = currentSlice.expenses.find((expense) => expense.id === action.payload.id);
             currentExpense.amount=action.payload.amount;
             currentExpense.title=action.payload.title;
-            console.log("From Slice : ",currentExpense.id,currentExpense.title);
+            // console.log("From Slice : ",currentExpense.id,currentExpense.title);
             updateTotalExpense();
         },
         updateTotalExpense : (currentSlice,action) => {            
-             console.log("amount changed");
+            //  console.log("amount changed");
              currentSlice.totalExpense = currentSlice.expenses.reduce((acc,expense) => {
                 return acc + Number(expense.amount);
              },0)
@@ -72,13 +73,16 @@ export const expenseSlice = createSlice({
         },
         updateTotalIncome : (currentSlice,action) => {
             currentSlice.totalIncome = action.payload.income;
+        },
+        incrementActionCounter : (currentSlice,action) => {
+            currentSlice.actionCounter++;
         }
         /* autres fonctions*/ 
     }
 
 });
 //destructuration => toutes les fonctions créées passent dans les accolades du const
-const {addExpense,updateTotalExpense,deleteExpense, addExpenseAmountToTotal,modifyExpense,substractExpenseAmountToTotal,updateCurrentCash,updateTotalIncome} = expenseSlice.actions;
+const {addExpense,updateTotalExpense,deleteExpense, addExpenseAmountToTotal,modifyExpense,substractExpenseAmountToTotal,updateCurrentCash,updateTotalIncome,incrementActionCounter} = expenseSlice.actions;
 
 export {
     addExpense,
@@ -88,5 +92,6 @@ export {
     modifyExpense,
     substractExpenseAmountToTotal,
     updateCurrentCash,
-    updateTotalIncome
+    updateTotalIncome,
+    incrementActionCounter
 }

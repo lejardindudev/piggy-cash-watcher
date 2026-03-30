@@ -18,7 +18,6 @@ export default function ExpenseListItem({title,amount,id,restoreFocus,showHideFo
     
   }
 const handleUpdateItem = (title,amount,id) => {
-  // console.log(title,amount,id);
   showHideForm(true,title,amount,id);
 
 }

@@ -87,7 +87,7 @@ function App() {
       // restoreFocus();
       return;
     }
-    console.log("from form",amountUpdate);
+    // console.log("from form",amountUpdate);
     if (Number.isNaN(amountUpdate)){
       alert("Bad format for amount field ");
       // restoreFocus();

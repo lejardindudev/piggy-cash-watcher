@@ -3,6 +3,7 @@ import storageImport from "redux-persist/lib/storage";
 import {persistStore,persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from "redux-persist";
 import {expenseSlice} from "./expense-slice/expenseSlice.js";
 import {authSlice} from "./authSlice/authSlice.js";
+import { loggerMiddleware } from "./middlewares/loggerMiddleware.js";
 
 //## Configuration de la persistance
 // Dans ecosysteme vite, l'import peut etre dans le sous objet default =>
@@ -34,7 +35,7 @@ const store = configureStore({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
             }
-        })
+        }).prepend(loggerMiddleware.middleware)
         return middleware;
     }
 });
